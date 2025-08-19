@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS SCE Recruitment 2K25 </title>
+    <link rel="icon" href="images/NSS Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        /* Base styles from previous versions */
+        .section-heading {
+            text-align: center;
+            padding: 1vw 0 2vw 0;
+            position: relative;
+        }
+
+        .section-heading h1 {
+            font-size: 4vw;
+            color: #2b2b80;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5vw;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #d3d3f7, #9f9fe5, #2b2b80);
+            border-radius: 2px;
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes underlineGlow {
+            from {
+                box-shadow: 0 0 5px rgba(43, 43, 128, 0.3);
+            }
+
+            to {
+                box-shadow: 0 0 15px rgba(43, 43, 128, 0.8);
+            }
+        }
+
+        /* --- START: FINAL STYLES FOR ABOUT US AND FOOTER --- */
+        #about-us {
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #d3d3f7 30%, #9f9fe5 60%, #2b2b80 100%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 4vw 4vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 2vw;
+        }
+
+        .about-header h1 {
+            font-size: 4vw;
+            color: #2b2b80;
+            margin-bottom: 1vw;
+        }
+
+        .about-content-wrapper {
+            padding-left: 1vw;
+            padding-right: 2vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2vw;
+            max-width: 1500px;
+            margin-top: 2vw;
+        }
+
+        .about-text-left {
+            flex: 0 0 35%;
+            /* padding-right: 2vw; */
+        }
+
+        .about-text-left p {
+            font-size: 1.6vw;
+            color: #1a1a60;
+            font-weight: 400;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .social-grid-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding-left: 2vw;
+        }
+
+        .social-grid {
+            display: flex;
+            align-items: center;
+            gap: 2vw;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        /* Original card design restored */
+        .social-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 255, 0.9));
+            border-radius: 20px;
+            padding: 1.5vw;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(43, 43, 128, 0.2);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(43, 43, 128, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            width: 240px;
+            /* Fixed width from good layout */
+            flex-shrink: 0;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(43, 43, 128, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .social-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(43, 43, 128, 0.3);
+            border-color: rgba(43, 43, 128, 0.3);
+        }
+
+        .qr-container {
+            position: relative;
+            margin-bottom: 1.5vw;
+        }
+
+        .qr-code {
+            width: 8vw;
+            height: 8vw;
+            max-width: 140px;
+            max-height: 140px;
+            min-width: 100px;
+            min-height: 100px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border: 3px solid #f0f0f0;
+        }
+
+        .social-label {
+            font-size: 1.1vw;
+            font-weight: 600;
+            color: #2b2b80;
+            margin-bottom: 1vw;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Original button design restored */
+        .social-btn {
+            background: linear-gradient(135deg, #2b2b80, #4a4aa8);
+            color: white;
+            border: none;
+            padding: 0.8vw 1.5vw;
+            border-radius: 25px;
+            font-size: 0.9vw;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5vw;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .social-btn:hover::before {
+            left: 100%;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(43, 43, 128, 0.4);
+        }
+
+        .instagram-card .social-btn {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+        }
+
+        .youtube-card .social-btn {
+            background: linear-gradient(135deg, #cd4818, #f03b04);
+        }
+
+        .twitter-card .social-btn {
+            background: linear-gradient(135deg, #463dee, #1f43f5);
+        }
+
+        /* Contact info and Footer styles from previous good layout */
+        .contact-info {
+            width: 100%;
+            max-width: 1500px;
+            text-align: center;
+            margin-top: 5vw;
+            padding: 2vw;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5vw;
+            color: #1a1a60;
+            font-weight: 500;
+            margin-bottom: 1.5vw;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2vw;
+            flex-wrap: wrap;
+        }
+
+        .contact-info li {
+            font-size: 1.2vw;
+            color: #2b2b80;
+            font-weight: bold;
+            padding: 0.5vw 1.5vw;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(43, 43, 128, 0.1);
+        }
+
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5vw 4vw;
+            background-color: #f5f5ff;
+            border-top: 1px solid #e0e0f0;
+            box-shadow: 0 -4px 15px rgba(43, 43, 128, 0.06);
+            color: #2b2b80;
+            margin-top: 2vw;
+            position: relative;
+            z-index: 20;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5vw;
+        }
+
+        .footer-left p,
+        .footer-left a {
+            margin: 0;
+            font-size: 0.9vw;
+            font-weight: 500;
+            color: #2b2b80;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-left a:hover {
+            color: #6b6bc8;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2vw;
+        }
+
+        .footer-right a {
+            font-size: 1.4vw;
+            color: #2b2b80;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .footer-right a:hover {
+            transform: scale(1.2);
+            color: #6b6bc8;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+
+
+            #events-section {
+                padding: 15vw 2vw;
+                /* Add some horizontal padding */
+                overflow-x: hidden;
+                /* Prevent horizontal scrolling */
+            }
+
+            .events-header h1 {
+                font-size: 8vw;
+            }
+
+            .events-header p {
+                font-size: 4vw;
+            }
+
+            .book-container {
+                transform: scale(0.9);
+                /* Scale down the whole container slightly to fit */
+                transform-origin: top center;
+                width: 100%;
+            }
+
+            /* Keep the book dimensions similar to desktop */
+            .book {
+                height: 30vh;
+                /* Maintain a good height */
+                width: 0.1px;
+                /* Keep the desktop width */
+                max-width: none;
+                /* Override any previous max-width */
+                margin: 0 auto;
+                /* Center the book */
+                /* This transform will help center it if it overflows */
+                transform: translateX(calc((673px - 10vw) / -3));
+            }
+
+            /* Ensure page content remains in a two-column layout */
+            .page-content {
+                flex-direction: row;
+                /* This is the key: force it back to a row */
+            }
+
+            /* Adjust font sizes within the book to be readable but not too large */
+            .page-half.right h2 {
+                font-size: 1.8vw;
+            }
+
+            .page-half.right p {
+                font-size: 1vw;
+                line-height: 1.3;
+            }
+
+            .event-details span {
+                font-size: 0.9vw;
+            }
+
+            .book-title {
+                font-size: 5vw;
+            }
+
+            .book-subtitle {
+                font-size: 3vw;
+            }
+
+            .book-year {
+                font-size: 4vw;
+            }
+
+            .nss-logo-book img {
+                width: 15vw;
+                height: auto;
+            }
+
+            /* Adjust controls to be smaller and better positioned */
+            .book-controls {
+                gap: 3vw;
+            }
+
+            .book-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 5vw;
+            }
+
+            .page-indicator {
+                font-size: 3.5vw;
+            }
+
+
+            .slider .content div:nth-child(2) {
+                font-size: 2.7rem;
+                text-transform: uppercase;
+                letter-spacing: 10px;
+                font-weight: bold;
+                position: relative;
+            }
+
+
+            #prev,
+            #next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: transparent;
+                border: 1px solid #eee9;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #eee;
+                font-size: x-large;
+                font-family: monospace;
+                cursor: pointer;
+                z-index: 15;
+                margin-top: 25px;
+            }
+
+            .contact-info ul {
+                display: flex;
+                flex-direction: row;
+                /* This is the key change to make it horizontal */
+                justify-content: center;
+                /* This will center the group of contacts */
+                align-items: center;
+                /* This vertically aligns the items nicely */
+                flex-wrap: wrap;
+                /* Allows items to wrap on very small screens if needed */
+                gap: 2vw;
+                /* Adjusts the space between the contact items */
+            }
+
+            .contact-info li {
+                font-size: 3.2vw;
+                /* Slightly smaller font to fit on one line */
+                text-align: center;
+                padding: 1.5vw 3vw;
+                /* Adjust padding for a more compact look */
+                flex-shrink: 0;
+                /* Prevents items from shrinking too much */
+            }
+
+            .contact-info li span {
+                font-size: 2.8vw;
+                /* Adjust phone number font size */
+            }
+
+            .social-grid {
+                display: flex;
+                flex-direction: row;
+                /* This is the main change to align items horizontally */
+                justify-content: center;
+                /* This will center the cards nicely */
+                align-items: stretch;
+                /* Ensures cards are of equal height */
+                gap: 3vw;
+                /* Adjusts the space between cards */
+                width: 100%;
+            }
+
+            .social-card {
+                flex: 1;
+                /* Allows cards to shrink and grow equally to fit the space */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                /* NOTE: Remove any fixed 'width' or 'height' properties you may have added here */
+            }
+
+            /* Optional: Adjust the content inside the smaller cards */
+            .qr-code {
+                width: 100%;
+                height: auto;
+                max-width: 100px;
+                /* Control the max size of the QR code */
+                aspect-ratio: 1 / 1;
+            }
+
+            .social-label {
+                font-size: 3.5vw;
+                /* Adjust font size for mobile */
+                margin-bottom: 2.5vw;
+            }
+
+            .social-btn {
+                font-size: 3vw;
+                padding: 2vw 3vw;
+            }
+
+            #about-us {
+                min-height: auto;
+                padding: 10vw 4vw;
+            }
+
+            .about-header h1 {
+                font-size: 8vw;
+            }
+
+            .about-content-wrapper {
+                flex-direction: column;
+                text-align: center;
+                gap: 6vw;
+            }
+
+            .about-text-left {
+                flex-basis: auto;
+                padding-right: 0;
+            }
+
+            .about-text-left p {
+                font-size: 3.5vw;
+                text-align: center;
+            }
+
+            .social-grid-right {
+                justify-content: center;
+                padding-left: 2vw;
+            }
+
+            .social-grid {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 4vw;
+                margin-top: 6vw;
+                width: 100%;
+            }
+
+            .social-card {
+                width: 150px;
+                height: auto;
+            }
+
+            .qr-code {
+                width: 20vw;
+                height: 20vw;
+            }
+
+            .social-label {
+                font-size: 3.5vw;
+            }
+
+            .social-btn {
+                font-size: 2vw;
+                padding: 2vw 3.5vw;
+                justify-content: center;
+            }
+
+            .contact-info {
+                margin-top: 8vw;
+            }
+
+            .contact-info h3 {
+                font-size: 4vw;
+            }
+
+            .contact-info ul {}
+
+            .contact-info li {
+                font-size: 3.5vw;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                gap: 4vw;
+                text-align: center;
+                padding: 5vw;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                gap: 3vw;
+            }
+
+            .footer-left p,
+            .footer-left a {
+                font-size: 3.5vw;
+            }
+
+            .footer-right {
+                gap: 6vw;
+            }
+
+            .footer-right a {
+                font-size: 6vw;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #nav-part2 h4.active a {
+            color: #2b2b80 !important;
+            font-weight: bold;
+        }
+
+        #nav-part2 h4.active {
+            background-color: rgba(43, 43, 128, 0.1);
+            border-color: #2b2b80;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader">
+        <h1>NOT ME</h1>
+        <h1>BUT YOU</h1>
+        <h1>NSS SCE KIIT</h1>
+    </div>
+    <div id="fixed-image"></div>
+    <div id="full-scr">
+        <div id="full-div1">
+            <ul>
+                <li><a href="#projects-section">PROJECTS</a></li>
+                <li><a href="#domains-section">DOMAINS</a></li>
+                <li><a href="#events-section">EVENTS</a></li>
+                <li><a href="#about-us">ABOUT US</a></li>
+                <li><a href="https://nss.kiit.ac.in/" target="_blank">NSS KIIT HOME PAGE</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="nav">
+        <nav>
+            <picture>
+                <source srcset="images/avif/KIITLOGO.avif" type="image/avif">
+                <source srcset="images/webp/KIITLOGO.webp" type="image/webp">
+                <img src="images/KIITLOGO.png" class="logo" alt="">
+            </picture>
+            <div id="nav-part2">
+                <h4><a href="#projects-section">PROJECTS</a></h4>
+                <h4><a href="#domains-section">DOMAIN</a></h4>
+                <h4><a href="#events-section">EVENTS</a></h4>
+                <h4><a href="#about-us">ABOUT US</a></h4>
+                <h4><a href="https://nss.kiit.ac.in/" target="_blank">NSS KIIT HOME PAGE</a></h4>
+            </div>
+            <h3>Menu</h3>
+        </nav>
+    </div>
+    <div id="main">
+
+        <div id="page1">
+            <div id="center">
+                <div id="left">
+                    <h3>The National Service Scheme (NSS) is a public service program launched by the Government of
+                        India in 1969, under the Ministry of Youth Affairs and Sports. It aims to develop the
+                        personality and character of students through voluntary community service. NSS volunteers work
+                        on various activities like cleanliness drives, health camps, awareness campaigns, and rural
+                        development, promoting the motto "Not Me, But You". The scheme encourages youth to become
+                        socially responsible citizens and contribute to nation-building.</h3>
+                </div>
+                <div id="right">
+                    <div class="logo-container">
+                        <picture>
+                            <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                            <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                            <img src="images/NSS Logo.png" class="nss-logo" alt="">
+                        </picture>
+                    </div>
+                    <br>
+                    <br>
+                    <h1>NOT ME <br>
+                        BUT YOU
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div id="page2">
+            <div id="moving-text">
+                <div class="con">
+                    <h1>NSS</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                    <h1>SCE</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                    <h1>Recruitment 2K25</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                </div>
+                <div class="con">
+                    <h1>NSS</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                    <h1>SCE</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                    <h1>Recruitment 2K25</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                </div>
+                <div class="con">
+                    <h1>NSS</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                    <h1>SCE</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                    <h1>Recruitment 2K25</h1>
+                    <picture>
+                        <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                        <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                        <img src="images/NSS Logo.png" class="nss-logo1" alt="NSS Logo">
+                    </picture>
+                </div>
+            </div>
+            <div id="page2-bottom">
+                <style>
+                    /* ======================================= */
+                    /* === DYNAMIC Shimmering Glow Button === */
+                    /* ======================================= */
+
+                    #page2-bottom {
+                        /* Ensures proper layout for this section */
+                        height: auto;
+                        /* Overriding previous vh value for flexibility */
+                        padding: 5vw 4vw;
+                        /* Responsive padding */
+                    }
+
+                    /* This centers the button properly under the image */
+                    #bottom-part2 {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 1.5vw;
+                    }
+
+                    #bottom-part2 img {
+                        width: 100%;
+                        max-width: 200px;
+                        /* Adjust size as needed */
+                        border-radius: 15px;
+                    }
+
+                    .register-btn {
+                        display: inline-block;
+                        padding: 15px 35px;
+                        border: none;
+                        border-radius: 50px;
+                        font-family: 'neu', sans-serif;
+                        font-size: 1.2vw;
+                        font-weight: bold;
+                        color: white;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        text-align: center;
+                        background: linear-gradient(90deg, #9333ea, #eab308);
+                        transition: all 0.4s ease-out;
+                        cursor: pointer;
+
+                        /* --- The Magic Begins --- */
+                        position: relative;
+                        /* Required for the shimmer pseudo-element */
+                        overflow: hidden;
+                        /* Keeps the shimmer within the button bounds */
+
+                        /* Continuous Breathing Glow Animation */
+                        animation: breathing-glow 3s infinite ease-in-out;
+                    }
+
+                    /* Shimmer Effect Pseudo-Element */
+                    .register-btn::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 40px;
+                        /* Width of the shine */
+                        height: 100%;
+                        background: rgba(255, 255, 255, 0.4);
+                        filter: blur(10px);
+                        /* Softens the shine */
+                        transform: translateX(-100px) skewX(-20deg);
+                        /* Starts off-screen */
+                        transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+                    }
+
+                    .register-btn:hover {
+                        transform: translateY(-3px) scale(1.05);
+                        /* Stop the breathing and apply a stronger, static glow */
+                        animation: none;
+                        box-shadow: 0 10px 30px rgba(147, 51, 234, 0.6);
+                    }
+
+                    /* Trigger the Shimmer on Hover */
+                    .register-btn:hover::after {
+                        transform: translateX(300px) skewX(-20deg);
+                        /* Sweeps the shine across */
+                    }
+
+                    .register-btn:active {
+                        transform: translateY(-1px) scale(1.02);
+                    }
+
+                    /* Keyframes for the continuous "breathing" glow */
+                    @keyframes breathing-glow {
+                        0% {
+                            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+                        }
+
+                        50% {
+                            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.5);
+                        }
+
+                        100% {
+                            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+                        }
+                    }
+
+                    /* Responsive adjustments */
+                    @media screen and (max-width: 768px) {
+                        #page2-bottom {
+                            /* flex-direction: column; */
+                            gap: 1vw;
+                            align-items: center;
+                            justify-content: center;
+                            margin-left: 1.5vh;
+                        }
+
+                        #page2-bottom h1 {
+                            font-size: 7vw;
+                            width: 100%;
+                            text-align: center;
+                            padding-left: 1.2vh;
+                        }
+
+                        #bottom-part2 {
+                            width: 70%;
+                        }
+
+                        .register-btn {
+                            font-size: 4vw;
+                            padding: 12px 28px;
+                        }
+
+                        #bottom-part2 {
+                            gap: 4vw;
+                        }
+                    }
+                </style>
+
+                <h1>Recruitment for NSS SCE KIIT Unit is live. Register and provide a meaningful contribution to the
+                    society.</h1>
+
+                <div id="bottom-part2">
+                    <picture>
+                        <source srcset="images/avif/formQR.avif" type="image/avif">
+                        <source srcset="images/webp/formQR.webp" type="image/webp">
+                        <img src="images/formQR.png" alt="QR Code for Registration">
+                    </picture>
+                    <a href="form.html" target="_blank" class="register-btn">REGISTER NOW!</a>
+                </div>
+            </div>
+            <!-- This container handles the side padding -->
+            <div class="video-layout-container">
+
+                <div class="responsive-video-wrapper">
+
+                    <div class="video-overlay"></div>
+
+                    <iframe
+                        src="https://player.vimeo.com/video/1106909037?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1"
+                        frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" title="nss sce promo video">
+                    </iframe>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="events-section">
+            <div class="events-header">
+                <h1>OUR EVENTS</h1>
+                <p>Explore the memorable moments from NSS SCE KIIT</p>
+            </div>
+
+            <div class="book-container">
+                <div class="book" id="eventBook">
+                    <div class="back">
+                        <div class="book-cover">
+                            <h1 class="book-title">THE END</h1>
+                            <p class="book-year">Thank You for Reading</p>
+                        </div>
+                    </div>
+
+                    <div class="page10">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/schoolvisit.avif" type="image/avif">
+                                    <source srcset="images/webp/schoolvisit.webp" type="image/webp">
+                                    <img src="images/schoolvisit.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>School Visit</h2>
+                                <p>NSS volunteers visited a local school to engage with students through interactive
+                                    sessions and fun learning activities. We conducted awareness programs on hygiene,
+                                    discipline, and moral values, aiming to inspire young minds and promote holistic
+                                    development.</p>
+                                <div class="event-details">
+                                    <span>📅 December 2025</span>
+                                    <span>📍 Damana High School</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page9">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/slumvisit.avif" type="image/avif">
+                                    <source srcset="images/webp/slumvisit.webp" type="image/webp">
+                                    <img src="images/slumvisit.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Slum Visit</h2>
+                                <p>NSS volunteers conducted a slum visit to interact with the residents and understand
+                                    their challenges. We organized awareness sessions on hygiene, education, and health,
+                                    and also distributed essential items. The visit aimed to uplift the community
+                                    through care, knowledge, and social responsibility.</p>
+                                <div class="event-details">
+                                    <span>📅 March 2025</span>
+                                    <span>📍 Local Slum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page8">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/daan.avif" type="image/avif">
+                                    <source srcset="images/webp/daan.webp" type="image/webp">
+                                    <img src="images/daan.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>DAAN</h2>
+                                <p>NSS volunteers organized a Daan (donation) drive to support underprivileged
+                                    communities. Essentials like clothes, food items, and stationery were collected and
+                                    distributed with compassion. The initiative aimed to promote the spirit of sharing
+                                    and make a positive difference in the lives of those in need.</p>
+                                <div class="event-details">
+                                    <span>📅 November 2024</span>
+                                    <span>📍 Slum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page7">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/specialcamp.avif" type="image/avif">
+                                    <source srcset="images/webp/specialcamp.webp" type="image/webp">
+                                    <img src="images/specialcamp.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Special Camp</h2>
+                                <p>NSS volunteers successfully conducted a Special Camp focused on community development
+                                    and social awareness. Throughout the camp, various activities such as cleanliness
+                                    drives, awareness rallies, health check-ups, and educational sessions were
+                                    organized. The camp aimed to instill a sense of responsibility, service, and
+                                    leadership among volunteers while addressing local community needs.</p>
+                                <div class="event-details">
+                                    <span>📅 March 2024</span>
+                                    <span>📍 Village</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page6">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/animalfeeding.avif" type="image/avif">
+                                    <source srcset="images/webp/animalfeeding.webp" type="image/webp">
+                                    <img src="images/animalfeeding.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Animal Feeding</h2>
+                                <p>NSS volunteers conducted an animal feeding drive to show compassion towards stray
+                                    animals. We provided food and clean water to dogs, cows, and other animals in the
+                                    locality, promoting kindness and care for voiceless beings. The activity aimed to
+                                    foster empathy and encourage humane treatment of animals in the community.</p>
+                                <div class="event-details">
+                                    <span>📅 November 2024</span>
+                                    <span>📍 KIIT Road</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page5">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/roadsafety.avif" type="image/avif">
+                                    <source srcset="images/webp/roadsafety.webp" type="image/webp">
+                                    <img src="images/roadsafety.JPG" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Road Safety Rally</h2>
+                                <p>NSS volunteers organized a road safety rally to spread awareness about traffic rules
+                                    and responsible driving. Through posters, slogans, and public interaction, we
+                                    educated people on the importance of wearing helmets, seatbelts, and following
+                                    traffic signals. The rally aimed to promote a culture of safety and reduce road
+                                    accidents.</p>
+                                <div class="event-details">
+                                    <span>📅 January 2025</span>
+                                    <span>📍 KIIT Road</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page4">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/cleandrive.avif" type="image/avif">
+                                    <source srcset="images/webp/cleandrive.webp" type="image/webp">
+                                    <img src="images/cleandrive.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Cleanliness Drive</h2>
+                                <p>NSS volunteers actively participated in a cleanliness drive to promote hygiene and
+                                    environmental awareness. We cleaned public areas, spread awareness about waste
+                                    management, and encouraged the community to maintain a clean and healthy
+                                    environment. The initiative reflected our commitment to the Swachh Bharat Abhiyan
+                                    and community well-being.</p>
+                                <div class="event-details">
+                                    <span>📅 September 2024</span>
+                                    <span>📍 KIIT Road</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page3">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/plantation.avif" type="image/avif">
+                                    <source srcset="images/webp/plantation.webp" type="image/webp">
+                                    <img src="images/plantation.jpeg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Plantation Drive</h2>
+                                <p>NSS volunteers conducted a plantation drive to promote environmental sustainability
+                                    and awareness. Saplings were planted in public spaces and educational institutions,
+                                    encouraging green practices and responsibility towards nature. The drive aimed to
+                                    contribute to a cleaner, greener, and healthier environment.</p>
+                                <div class="event-details">
+                                    <span>📅 July 2025</span>
+                                    <span>📍 Prasanti Vihar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page2">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/orphange.avif" type="image/avif">
+                                    <source srcset="images/webp/orphange.webp" type="image/webp">
+                                    <img src="images/orphange.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Orphange Visit</h2>
+                                <p>NSS volunteers visited a local orphanage to engage with the children and share
+                                    meaningful moments. We conducted interactive sessions where we taught them good
+                                    habits, hygiene practices, and moral values through fun activities. The visit aimed
+                                    to inspire, educate, and bring smiles to their faces while reinforcing our
+                                    commitment to community service.</p>
+                                <div class="event-details">
+                                    <span>📅 March 2025</span>
+                                    <span>📍 Madhurmaye Orphange</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page1">
+                        <div class="page-content">
+                            <div class="page-left">
+                                <picture>
+                                    <source srcset="images/avif/health camp.avif" type="image/avif">
+                                    <source srcset="images/webp/health camp.webp" type="image/webp">
+                                    <img src="images/health camp.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="page-right">
+                                <h2>Health Camp</h2>
+                                <p>NSS SCE organized an ENT health camp to spread awareness and provide basic healthcare
+                                    support to the community. The camp offered free check-ups, consultations, and
+                                    guidance on ENT-related issues. Through this initiative, we aimed to promote early
+                                    detection, encourage healthy practices, and serve society with compassion and
+                                    responsibility.</p>
+                                <div class="event-details">
+                                    <span>📅 March 2025</span>
+                                    <span>📍 Damana High School</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="front">
+                        <div class="book-cover">
+                            <h1 class="book-title">NSS SCE KIIT</h1>
+                            <h2 class="book-subtitle">EVENT DIARY</h2>
+                            <div class="nss-logo-book">
+                                <picture>
+                                    <source srcset="images/avif/NSS Logo.avif" type="image/avif">
+                                    <source srcset="images/webp/NSS Logo.webp" type="image/webp">
+                                    <img src="images/NSS Logo.png" alt="NSS Logo">
+                                </picture>
+                            </div>
+                            <p class="book-year">2025 Edition</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-controls">
+                    <button id="prevEvent" class="book-arrow">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <div class="page-indicator">
+                        <span id="currentPage">Cover</span> / <span id="totalPages">10</span>
+                    </div>
+                    <button id="nextEvent" class="book-arrow">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="page3">
+            <div class="section-heading" style="padding-bottom: 2vw;">
+                <h1>OUR DOMAINS</h1>
+            </div>
+            <div id="domains-section" class="carousel">
+                <div class="list">
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/videoeditor.avif" type="image/avif">
+                            <source srcset="images/webp/videoeditor.webp" type="image/webp">
+                            <img src="images/videoeditor.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="author">NSS SCE KIIT</div>
+                            <div class="title">VIDEO</div>
+                            <div class="topic">EDITING</div>
+                            <div class="des" style="color: black;">
+                                The Video Editing domain shapes raw footage into captivating stories through precise
+                                cutting,
+                                transitions, and effects. It combines technical expertise with creative vision to
+                                enhance visual
+                                narratives and engage viewers.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/gd2.avif" type="image/avif">
+                            <source srcset="images/webp/gd2.webp" type="image/webp">
+                            <img src="images/gd2.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="author">NSS SCE KIIT</div>
+                            <div class="title">GRAPHIC</div>
+                            <div class="topic">DESIGNING</div>
+                            <div class="des" style="color: black;">
+                                The Graphic Designing domain brings ideas to life through visual storytelling. It blends
+                                creativity with design principles to create compelling visuals for branding, marketing,
+                                and
+                                digital media.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/camera.avif" type="image/avif">
+                            <source srcset="images/webp/camera.webp" type="image/webp">
+                            <img src="images/camera.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="author">NSS SCE KIIT</div>
+                            <div class="title">PHOTO</div>
+                            <div class="topic">GRAPHY</div>
+                            <div class="des" style="color: black;">
+                                The Photography domain captures moments through the lens, telling stories with
+                                creativity and
+                                visual impact. It blends technical skills with artistic vision to document events,
+                                emotions, and
+                                perspectives in compelling ways.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/contentwriter.avif" type="image/avif">
+                            <source srcset="images/webp/contentwriter.webp" type="image/webp">
+                            <img src="images/contentwriter.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="author">NSS SCE KIIT</div>
+                            <div class="title">CONTENT</div>
+                            <div class="topic">WRITING</div>
+                            <div class="des" style="color: black;">
+                                The Content Writing domain focuses on crafting engaging and impactful written material
+                                for
+                                various platforms. It combines creativity, clarity, and strategy to communicate ideas
+                                effectively and connect with diverse audiences.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/gv.avif" type="image/avif">
+                            <source srcset="images/webp/gv.webp" type="image/webp">
+                            <img src="images/gv.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="author">NSS SCE KIIT</div>
+                            <div class="title">GENERAL</div>
+                            <div class="topic">VOLUNTEERING</div>
+                            <div class="des" style="color: black;">
+                                The General Volunteering domain aims to instill a sense of social responsibility and
+                                develop leadership skills through hands-on work, all under the guiding motto of selfless
+                                service, "Not Me But You." This experience is a transformative journey for personal
+                                growth and contributing to nation-building.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/videoeditor.avif" type="image/avif">
+                            <source srcset="images/webp/videoeditor.webp" type="image/webp">
+                            <img src="images/videoeditor.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="title">Video Editing</div>
+                            <div class="description">Domain</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/gd2.avif" type="image/avif">
+                            <source srcset="images/webp/gd2.webp" type="image/webp">
+                            <img src="images/gd2.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="title">Graphic Designing</div>
+                            <div class="description">Domain</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/camera.avif" type="image/avif">
+                            <source srcset="images/webp/camera.webp" type="image/webp">
+                            <img src="images/camera.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="title">Photograpy</div>
+                            <div class="description">Domain</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/contentwriter.avif" type="image/avif">
+                            <source srcset="images/webp/contentwriter.webp" type="image/webp">
+                            <img src="images/contentwriter.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="title">Content Writing</div>
+                            <div class="description">Domain</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/gv.avif" type="image/avif">
+                            <source srcset="images/webp/gv.webp" type="image/webp">
+                            <img src="images/gv.jpg">
+                        </picture>
+                        <div class="content">
+                            <div class="title">General Volunteering</div>
+                            <div class="description">Domain</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrows">
+                    <button id="prev">&lt;</button>
+                    <button id="next">></button>
+                </div>
+                <div class="time"></div>
+            </div>
+
+            <div id="projects-section" class="slider">
+                <div class="list">
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/bandhutva.avif" type="image/avif">
+                            <source srcset="images/webp/bandhutva.webp" type="image/webp">
+                            <img src="images/bandhutva.png">
+                        </picture>
+                    </div>
+                    <div class="item active">
+                        <picture>
+                            <source srcset="images/avif/DHARA.avif" type="image/avif">
+                            <source srcset="images/webp/DHARA.webp" type="image/webp">
+                            <img src="images/DHARA.png">
+                        </picture>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/nidaan.avif" type="image/avif">
+                            <source srcset="images/webp/nidaan.webp" type="image/webp">
+                            <img src="images/nidaan.png">
+                        </picture>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/riddhi.avif" type="image/avif">
+                            <source srcset="images/webp/riddhi.webp" type="image/webp">
+                            <img src="images/riddhi.png">
+                        </picture>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/sanyukt.avif" type="image/avif">
+                            <source srcset="images/webp/sanyukt.webp" type="image/webp">
+                            <img src="images/sanyukt.png">
+                        </picture>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/sparsh.avif" type="image/avif">
+                            <source srcset="images/webp/sparsh.webp" type="image/webp">
+                            <img src="images/sparsh.png">
+                        </picture>
+                    </div>
+
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/swet.avif" type="image/avif">
+                            <source srcset="images/webp/swet.webp" type="image/webp">
+                            <img src="images/swet.png">
+                        </picture>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/udaan.avif" type="image/avif">
+                            <source srcset="images/webp/udaan.webp" type="image/webp">
+                            <img src="images/udaan.png">
+                        </picture>
+                    </div>
+                    <div class="item">
+                        <picture>
+                            <source srcset="images/avif/urja.avif" type="image/avif">
+                            <source srcset="images/webp/urja.webp" type="image/webp">
+                            <img src="images/urja.png">
+                        </picture>
+                    </div>
+                </div>
+                <div class="circle">
+                    BANDHUTVA - DHARA - NIDAAN - RIDDHI - SANYUKT - SPARSH - SWET - UDAAN - URJA -
+                </div>
+                <div class="content">
+                    <div></div>
+                    <div><br>Projects</div>
+                    <button>NSS SCE KIIT</button>
+                </div>
+                <div class="arow">
+                    <button id="prev">&lt;</button>
+                    <button id="next">></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-us">
+            <div class="about-header">
+                <h1>ABOUT US</h1>
+            </div>
+            <div class="about-content-wrapper">
+                <div class="about-text-left">
+                    <p>Connect with NSS SCE KIIT through our social media channels. Stay updated with our latest
+                        activities, events, and community service initiatives as we work towards creating a better
+                        society together.</p>
+                </div>
+                <div class="social-grid-right">
+                    <div class="social-grid">
+                        <div class="social-card instagram-card">
+                            <div class="social-label">Follow Us</div>
+                            <div class="qr-container">
+                                <picture>
+                                    <source srcset="images/avif/QR.avif" type="image/avif">
+                                    <source srcset="images/webp/QR.webp" type="image/webp">
+                                    <img src="images/QR.png" alt="Instagram QR Code" class="qr-code">
+                                </picture>
+                            </div>
+                            <a href="https://www.instagram.com/nss.sce.kiit/?hl=en" target="_blank" class="social-btn">
+                                <i class="bi bi-instagram"></i> Instagram
+                            </a>
+                        </div>
+
+                        <div class="social-card youtube-card">
+                            <div class="social-label">Follow Us</div>
+                            <div class="qr-container">
+                                <picture>
+                                    <source srcset="images/avif/youtubeQR.avif" type="image/avif">
+                                    <source srcset="images/webp/youtubeQR.webp" type="image/webp">
+                                    <img src="images/youtubeQR.png" alt="YouTube QR Code" class="qr-code">
+                                </picture>
+                            </div>
+                            <a href="https://www.youtube.com/c/NSSSCE" target="_blank" class="social-btn">
+                                <i class="bi bi-youtube"></i> YouTube
+                            </a>
+                        </div>
+
+                        <div class="social-card twitter-card">
+                            <div class="social-label">Read Brochure</div>
+                            <div class="qr-container">
+                                <img src="images/brochure.svg" alt="Brochure QR Code" class="qr-code">
+                            </div>
+                            <a href="/public/NSS-SCE-Brochure-2k25.pdf" target="_blank" class="social-btn">
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>For further information, Contact:</h3>
+                <ul>
+                    <li>Piyush Agrawal<br>(+91-7635088808)</li>
+                    <li>Ankit Kumar<br>(+91-8709914709)</li>
+                    <li>Kaustubh Rastogi<br>(+91-7985078516)</li>
+                </ul>
+            </div>
+        </div>
+        <footer class="site-footer">
+            <div class="footer-left">
+                <p>© 2025 NSS SCE KIIT</p>
+                <a href="#">Ministry of Youth Affairs & Sports</a>
+                <a href="#">Government of India</a>
+
+            </div>
+            <div class="footer-right">
+                <a href="https://www.instagram.com/nss.sce.kiit/?hl=en" target="_blank" aria-label="Instagram"><i
+                        class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/nss-sce-kiit/" target="_blank" aria-label="LinkedIn"><i
+                        class="bi bi-linkedin"></i></a>
+                <a href="https://www.facebook.com/nss.kiit/" target="_blank" aria-label="Facebook"><i
+                        class="bi bi-facebook"></i></a>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Declare the scroll variable globally so it can be accessed by different functions.
+        let scroll;
+
+        // This function handles the desktop navigation links and active state highlighting.
+        // It depends on LocomotiveScroll, so it must only be called on desktop.
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('#nav-part2 h4 a');
+
+            // Handle smooth scrolling on click for desktop nav
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(targetId);
+                        if (targetSection) {
+                            scroll.scrollTo(targetSection);
+                        }
+                    }
+                });
+            });
+
+            // Handle active link highlighting on scroll
+            scroll.on('scroll', (args) => {
+                const sections = document.querySelectorAll('#page1, #page2, #events-section, #domains-section, #projects-section, #about-us');
+                let currentSectionId = '';
+
+                sections.forEach(section => {
+                    if (args.scroll.y > section.offsetTop - 300) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href').startsWith('#')) {
+                        link.parentElement.classList.remove('active');
+                        const href = link.getAttribute('href').substring(1);
+                        if (href === currentSectionId) {
+                            link.parentElement.classList.add('active');
+                        }
+                    }
+                });
+            });
+        }
+
+        // This function handles the hover-based image animation.
+        // It will only be called on desktop.
+        function page4Animation() {
+            const elemC = document.querySelector("#elem-container");
+            const fixed = document.querySelector("#fixed-image");
+            if (elemC && fixed) {
+                elemC.addEventListener("mouseenter", function () {
+                    fixed.style.display = "block";
+                });
+                elemC.addEventListener("mouseleave", function () {
+                    fixed.style.display = "none";
+                });
+
+                const elems = document.querySelectorAll(".elem");
+                elems.forEach(function (e) {
+                    e.addEventListener("mouseenter", function () {
+                        const image = e.getAttribute("data-image");
+                        fixed.style.backgroundImage = `url(${image})`;
+                    });
+                });
+            }
+        }
+
+        // This function initializes the Swiper.js slider.
+        function swiperAnimation() {
+            const swiper = new Swiper(".mySwiper", {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 100,
+            });
+        }
+
+        // This function handles the mobile navigation overlay menu.
+        function menuAnimation() {
+            const menu = document.querySelector("nav h3");
+            const full = document.querySelector("#full-scr");
+            const navimg = document.querySelector("nav img");
+            let flag = 0;
+
+            function closeMenu() {
+                full.style.top = "-100%";
+                navimg.style.opacity = 1;
+                flag = 0;
+            }
+
+            if (menu && full && navimg) {
+                menu.addEventListener("click", function () {
+                    if (flag == 0) {
+                        full.style.top = 0;
+                        navimg.style.opacity = 0;
+                        flag = 1;
+                    } else {
+                        closeMenu();
+                    }
+                });
+
+                const navLinks = document.querySelectorAll("#full-div1 a");
+                navLinks.forEach(function (link) {
+                    link.addEventListener("click", function (e) {
+                        const targetId = link.getAttribute("href");
+                        if (targetId.startsWith("#")) {
+                            e.preventDefault();
+                            closeMenu();
+                            setTimeout(function () {
+                                const targetSection = document.querySelector(targetId);
+                                if (targetSection) {
+                                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }, 300);
+                        }
+                    });
+                });
+            }
+        }
+
+        // This function handles the initial page loader.
+        function loaderAnimation() {
+            const loader = document.querySelector("#loader");
+            if (loader) {
+                setTimeout(function () {
+                    loader.style.top = "-100%";
+                }, 4200);
+            }
+        }
+
+        // This function initializes the project slider.
+        function initProjectSlider() {
+            let circle = document.querySelector('.circle');
+            let list = document.querySelector('.slider .list');
+            let prev = document.querySelector('.slider .arow #prev');
+            let next = document.querySelector('.slider .arow #next');
+            let items = document.querySelectorAll('.slider .list .item');
+
+            if (!list) return; // Exit if the slider doesn't exist on the page
+
+            let count = items.length;
+            let active = 1;
+            let width_item = items[0] ? items[0].offsetWidth : 0; // Check if items[0] exists
+
+            next.onclick = () => {
+                active = active >= count - 1 ? count - 1 : active + 1;
+                runCarousel();
+            }
+
+            prev.onclick = () => {
+                active = active <= 0 ? 0 : active - 1;
+                runCarousel();
+            }
+
+            function runCarousel() {
+                prev.style.display = (active == 0) ? 'none' : 'block';
+                next.style.display = (active == count - 1) ? 'none' : 'block';
+                let old_active = document.querySelector('.slider .item.active');
+                if (old_active) old_active.classList.remove('active');
+                items[active].classList.add('active');
+                let leftTransform = width_item * (active - 1) * -1;
+                list.style.transform = `translateX(${leftTransform}px)`;
+            }
+            runCarousel();
+
+            if (circle) {
+                let textToDisplay = " NIDAAN - UDAAN - SPARSH - BANDHUTVA - DHARA - RIDDHI - SWET - SANYUKT - URJA -";
+                circle.innerText = '';
+                let textCircle = textToDisplay.split('');
+                textCircle.forEach((value, key) => {
+                    let newSpan = document.createElement("span");
+                    newSpan.innerText = value;
+                    let rotateThisSpan = (360 / textCircle.length) * (key + 1);
+                    newSpan.style.setProperty('--rotate', rotateThisSpan + 'deg');
+                    circle.appendChild(newSpan);
+                });
+            }
+        }
+
+        // This function initializes the domain carousel.
+        function initDomainCarousel() {
+            let carouselNextDom = document.querySelector('.carousel .arrows #next');
+            if (!carouselNextDom) return; // Exit if this carousel isn't on the page
+
+            let carouselPrevDom = document.querySelector('.carousel .arrows #prev');
+            let carouselDom = document.querySelector('.carousel');
+            let carouselSliderDom = carouselDom.querySelector('.carousel .list');
+            let thumbnailBorderDom = carouselDom.querySelector('.carousel .thumbnail');
+            let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+
+            if (thumbnailItemsDom.length > 0) {
+                thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+            }
+
+            let timeRunning = 3000;
+            let timeAutoNext = 7000;
+            let runTimeOut;
+            let runNextAuto = setTimeout(() => { carouselNextDom.click() }, timeAutoNext);
+
+            carouselNextDom.onclick = function () { showSlider('next'); }
+            carouselPrevDom.onclick = function () { showSlider('prev'); }
+
+            function showSlider(type) {
+                let SliderItemsDom = carouselSliderDom.querySelectorAll('.carousel .list .item');
+                let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
+                if (type === 'next') {
+                    carouselSliderDom.appendChild(SliderItemsDom[0]);
+                    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+                    carouselDom.classList.add('next');
+                } else {
+                    carouselSliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+                    thumbnailBorderDom.prepend(thumbnailItemsDom[0]);
+                    carouselDom.classList.add('prev');
+                }
+                clearTimeout(runTimeOut);
+                runTimeOut = setTimeout(() => {
+                    carouselDom.classList.remove('next');
+                    carouselDom.classList.remove('prev');
+                }, timeRunning);
+                clearTimeout(runNextAuto);
+                runNextAuto = setTimeout(() => { carouselNextDom.click(); }, timeAutoNext);
+            }
+        }
+
+        // This function initializes the event book slider.
+        function initEventBookSlider() {
+            const book = document.getElementById('eventBook');
+            if (!book) return; // Exit if the book isn't on the page
+
+            const prevBtn = document.getElementById('prevEvent');
+            const nextBtn = document.getElementById('nextEvent');
+            const currentPageSpan = document.getElementById('currentPage');
+            let currentPage = 0;
+            const totalPages = 10;
+            let isAnimating = false;
+
+            function updateBookState() {
+                isAnimating = true;
+                book.className = 'book';
+                if (currentPage > 0) book.classList.add(`page${currentPage}-open`);
+                currentPageSpan.textContent = (currentPage === 0) ? 'Cover' : `Page ${currentPage}`;
+                prevBtn.disabled = currentPage === 0;
+                nextBtn.disabled = currentPage === totalPages;
+                setTimeout(() => { isAnimating = false; }, 1200);
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage <= 0 || isAnimating) return;
+                currentPage--;
+                updateBookState();
+            });
+            nextBtn.addEventListener('click', () => {
+                if (currentPage >= totalPages || isAnimating) return;
+                currentPage++;
+                updateBookState();
+            });
+            updateBookState();
+        }
+
+
+        // --- Main Execution ---
+        // This runs after the entire HTML page is loaded.
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Run animations that work on ALL devices
+            swiperAnimation();
+            menuAnimation();
+            loaderAnimation();
+            initProjectSlider();
+            initDomainCarousel();
+            initEventBookSlider();
+
+            // Run animations and initializations ONLY for desktop screens
+            if (window.innerWidth > 768) {
+                // Initialize Locomotive Scroll
+                scroll = new LocomotiveScroll({
+                    el: document.querySelector('#main'),
+                    smooth: true
+                });
+
+                // Initialize desktop navigation (which depends on Locomotive Scroll)
+                initNavigation();
+
+                // Initialize hover-based animation
+                page4Animation();
+            }
+        });
+    </script>
+</body>
+
+</html>
